@@ -6,9 +6,9 @@ import { getAllContacts, getContactById } from './services/contacts.js';
 
 const PORT = Number(getEnvVar('PORT', '3000'));
 
-if (isNaN(PORT) || PORT < 0 || PORT >= 65536) {
-  throw new Error(`Invalid port value: ${PORT}`);
-}
+// if (isNaN(PORT) || PORT < 0 || PORT >= 65536) {
+//   throw new Error(`Invalid port value: ${PORT}`);
+// }
 
 export const setupServer = () => {
   const app = express();
@@ -27,6 +27,7 @@ export const setupServer = () => {
   app.get('/contacts', async (req, res) => {
     const contacts = await getAllContacts();
     res.status(200).json({
+      status: 200,
       message: 'Successfully found contacts!',
       data: contacts,
     });
