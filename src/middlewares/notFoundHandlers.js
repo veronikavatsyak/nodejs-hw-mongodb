@@ -1,4 +1,4 @@
 import createHttpError from 'http-errors';
-export const notFoundHandler = (req, res) => {
-  throw createHttpError(404, 'Rooute not found');
+export const notFoundHandler = (req, res, next) => {
+  next(createHttpError(404, 'Rogit ute not found'));
 };
