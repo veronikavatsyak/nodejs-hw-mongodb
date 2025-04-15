@@ -35,7 +35,7 @@ export const addContactController = async (req, res) => {
     data: contact,
   });
 };
-export const patchContactController = async (req, res, next) => {
+export const patchContactController = async (req, res) => {
   const { contactId } = req.params;
   const result = await updateContact(contactId, req.body);
   if (!result) {
