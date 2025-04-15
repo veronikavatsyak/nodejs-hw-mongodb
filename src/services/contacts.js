@@ -14,19 +14,27 @@ export const addContact = async (payload) => {
   const contact = await ContactsCollection.create(payload);
   return contact;
 };
+
 export const updateContact = async (contactId, payload, options = {}) => {
+  const { upsert } = options;
   const rawResult = await ContactsCollection.findOneAndUpdate(
     { _id: contactId },
     payload,
     {
       new: true,
-      ...options,
+      upsert,
+      includeResultMetadata: true,
     },
   );
+
   if (!rawResult || !rawResult.value) return null;
 
-  return rawResult;
+  return {
+    data: rawResult.value,
+    isNew: Boolean(rawResult.lastErrorObject.upserted),
+  };
 };
+
 export const deleteContact = async (contactId) => {
   const contact = await ContactsCollection.findOneAndDelete({ _id: contactId });
   return contact;
