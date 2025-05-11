@@ -31,6 +31,7 @@ export const createContactSchema = Joi.object({
       'string.max': 'Maximum {#limit} symbols',
       'any.required': 'Contacts type is required',
     }),
+  photo: Joi.any().optional(),
 });
 
 export const updateContactSchema = Joi.object({
@@ -61,4 +62,5 @@ export const updateContactSchema = Joi.object({
       'string.min': 'Minimum {#limit} symbols',
       'string.max': 'Maximum {#limit} symbols',
     }),
+  photo: Joi.any().optional(),
 });
