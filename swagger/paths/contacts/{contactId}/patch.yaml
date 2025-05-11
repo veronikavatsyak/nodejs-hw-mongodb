@@ -16,25 +16,35 @@ parameters:
 requestBody:
   required: true
   content:
-    application/json:
+    multipart/form-data:
       schema:
         type: object
         properties:
           name:
+            description: "Contact's name"
             type: string
-            example: 'Joe Doe'
+            example: 'John Doe'
           phoneNumber:
+            description: "Contact's  phone number"
             type: string
-            example: '0501234567'
+            example: '0987654321'
           email:
+            description: "Contact's age"
             type: string
-            example: 'jane@example.com'
+            example: 'johndoe@gmail.com'
+          contactType:
+            description: "Type of user's contact"
+            type: string
+            enum: ['work', 'home', 'personal']
           isFavourite:
+            description: 'Whether the contact is favorite'
             type: boolean
             example: false
-          contactType:
+          photo:
+            description: "Contact's photo"
             type: string
-            enum: [work, home, personal]
+            format: binary
+
 responses:
   '200':
     description: Contact updated successfully
@@ -59,3 +69,5 @@ responses:
     $ref: '../../../components/responses/401.yaml'
   '404':
     $ref: '../../../components/responses/404.yaml'
+  '400':
+    $ref: '../../../components/responses/400.yaml'
