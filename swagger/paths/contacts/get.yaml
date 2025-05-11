@@ -29,16 +29,6 @@ parameters:
       enum: ['asc', 'desc']
       example: 'asc'
   - in: query
-    name: totalItems
-    schema:
-      type: integer
-      example: 30
-  - in: query
-    name: totalPages
-    schema:
-      type: integer
-      example: 3
-  - in: query
     name: isFavourite
     schema:
       type: boolean
