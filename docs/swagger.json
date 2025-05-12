@@ -314,6 +314,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
           "401": {
             "$ref": "#/components/responses/401"
           },
@@ -458,6 +461,9 @@
         "responses": {
           "204": {
             "description": "Contact deleted successfully. No content returned."
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
